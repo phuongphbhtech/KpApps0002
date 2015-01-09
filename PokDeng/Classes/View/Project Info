@@ -1,0 +1,77 @@
+Server State
+0 waitingForStart
+1 start
+2 setBet
+3 setCutCard
+4 setCallCard
+
+
+
+Client Action
+waitingForStart                         serverState: waitingForStart
+setBet                                  serverState: SetBet
+getAllCardData                          serverState: SetBet
+getBetData                              serverState: SetBet
+drawBetData                             serverState: SetBet
+shuffleCard                             serverState: SetBet
+setCutCard
+getCutCard
+animateCutCard
+handOutCard
+openPokCard
+process -> isDealerPok || allPlayerPok
+setCallCard                     ||
+getCallCard                     ||
+handOutThirdCard                ||
+getMatchResult               <===
+showResult
+ClearTable
+
+
+game model
+การทำงานของ game state
+ทุกครั้งที่มีการเข้า state ใหม่ ต้องมีการ request ขอ timelimit ของ state นั้น จาก server
+และเมื่อเวลาครบของแต่ละ state จะมีการทำแอคชั่นท้าย state นั้นๆ จากนั้นจะอยู่ในช่วงการรอขึ้น state ใหม่
+
+
+ตัวแปรที่เกี่ยวกับ state
+gameStateStatus currentGameStateStatus
+float currentStateTimeLimit
+float timeLimitCount
+
+gameStateStatus
+    gameStateWaitingForNextState         //รอขึ้น state ใหม่
+    gameStateRequestGetTimeLimit         //ขอ timeLimit
+    gameStateCountdownTimeLimit          //อยู่ระหว่างลด timeLimit
+    gameStateActiveTimeLimitEndAction    //ทำแอ๊คชั่นหลังจากเวลาหมด
+    gameStateStatusEnd
+    /* เมื่อจบ action จะวนกลับไป waitingForNextState */
+
+
+
+
+
+playScene
+- background
+- playerChip display
+- GameMenuButton
+    - Quit Button
+    - Stand Button
+    
+- Set Data Menu
+    - Set Hand Menu
+    - Set Bet Menu
+    - Set Cut Card Menu
+    - Set Call Card Menu
+    - Request Dealer Menu
+    - add ai menu
+    - remove ai menu
+    - sit menu (enter chair)
+    
+- drawPicture
+    - draw player picture
+    - draw bet
+    - draw card (two cards)
+    - draw card (three cards)
+
+

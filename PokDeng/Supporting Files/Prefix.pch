@@ -1,0 +1,44 @@
+//
+// Prefix header for all source files of the 'Test' target in the 'Test' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+
+#define WINS    [[CCDirector sharedDirector]viewSize]
+
+// comment NOUER_DEBUG to close Debug Mode
+//#define NOUER_DEBUG
+
+#ifdef NOUER_DEBUG
+#define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif
+
+#define IS_ONLINE
+
+#ifdef IS_ONLINE
+
+#endif
+
+
+#define FONT_TRAJANPRO_BOLD                 @"TrajanPro-Bold"
+#define FONT_TRAJANPRO_REGULAR              @"TrajanPro-Regular"
+#define FONT_COOPER_BLACK                   @"CooperBlack"
+#define FONT_GEORGIA                        @"Georgia"
+#define FONT_GEORGIA_BOLD                   @"Georgia-Bold"
+#define FONT_GEORGIA_ITALIC                 @"Georgia-Italic"
+#define FONT_GEORGIA_BOLD_ITALIC            @"Georgia-BoldItalic"
+
+#define FONT_COLOR                          ccc3(245, 230, 158)
+#define IS_OPEN_FB                          YES

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>$2</string>
+		<integer>2</integer>
+		<string>$1</string>
+		<integer>1</integer>
+	</array>
+	<array>
+		<string>$4</string>
+		<integer>4</integer>
+		<string>$2</string>
+		<integer>2</integer>
+	</array>
+	<array>
+		<string>$10</string>
+		<integer>10</integer>
+		<string>$5</string>
+		<integer>5</integer>
+	</array>
+	<array>
+		<string>$50</string>
+		<integer>50</integer>
+		<string>$25</string>
+		<integer>25</integer>
+	</array>
+	<array>
+		<string>$200</string>
+		<integer>200</integer>
+		<string>$100</string>
+		<integer>100</integer>
+	</array>
+	<array>
+		<string>$400</string>
+		<integer>400</integer>
+		<string>$200</string>
+		<integer>200</integer>
+	</array>
+	<array>
+		<string>$1000</string>
+		<integer>1000</integer>
+		<string>$500</string>
+		<integer>500</integer>
+	</array>
+	<array>
+		<string>$2000</string>
+		<integer>2000</integer>
+		<string>$1000</string>
+		<real>1000</real>
+	</array>
+	<array>
+		<string>$4000</string>
+		<integer>4000</integer>
+		<string>$2000</string>
+		<real>2000</real>
+	</array>
+	<array>
+		<string>$10k</string>
+		<integer>10000</integer>
+		<string>$5k</string>
+		<string>5000</string>
+	</array>
+</array>
+</plist>
