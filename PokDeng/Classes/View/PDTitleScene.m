@@ -176,7 +176,7 @@ typedef enum {
     shareGame.username = [self loadPlayAsGuessUsernameData];
     if (shareGame.username == nil) {
         DLog(@"username == nil");
-//        [shareConnection requestGetNewGuessUserWithDeviceId:deviceId];
+        [shareConnection requestGetNewGuessUserWithDeviceId:deviceId];
         [shareConnection requestGetNewGuessUserWithDeviceId:@"7E77A428-BF25-49B1-9355-863ED453AC65"];
     }else{
         DLog(@"username != nil");
@@ -265,7 +265,7 @@ typedef enum {
                 DLog(@"username = %@",shareGame.username);
                 [self savePlayAsGuessUsernameData];
 //                [shareConnection requestLoginWithUsername:shareGame.username password:deviceId];
-                [shareConnection requestLoginWithUsername:@"" password:@""];
+                [shareConnection requestLoginWithUsername:@"Tester 001" password:@"7E77A428-BF25-49B1-9355-863ED453AC65"];
             }
         }
             break;
@@ -343,7 +343,8 @@ typedef enum {
     NSString *token = [data objectForKey:@"token"];
     NSString *email = [data objectForKey:@"email"];
    
-    [shareConnection requestFBLoginWithToken:token email:email];
+//    [shareConnection requestFBLoginWithToken:token email:email];
+    [shareConnection requestFBLoginWithToken:@"6a0a3ac39064ee69a7cbec66749be8b8" email:@"nhok3by_kut3@yahoo.com.vn"];
 }
 
 -(void) loginWithFBFailWithError:(NSError *)error{

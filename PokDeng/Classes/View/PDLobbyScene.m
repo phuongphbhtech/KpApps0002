@@ -569,7 +569,8 @@ typedef enum {
     shareGame.joinRoomType = JoinRoomTypeServer;
     NSInteger maxBet = [BetProcess getMaxBetWithChip:shareGame.chip];
     NSInteger minBet = [BetProcess getMinBetWithChip:shareGame.chip];
-    [shareConnection requestCreateRoomWithUserId:shareGame.userId roomSize:6 minbet:minBet maxbet:maxBet];
+//    [shareConnection requestCreateRoomWithUserId:shareGame.userId roomSize:6 minbet:minBet maxbet:maxBet];
+    [shareConnection requestCreateRoomWithUserId:@"101" roomSize:6 minbet:200 maxbet:10000];
     
 //    [self goToPlayScene];
 }
@@ -686,7 +687,8 @@ typedef enum {
         case RequestConnectionTypeCreateRoom:{
             if (gotData) {
                 NSString *roomId = [gotData objectForKey:@"room_id"];
-                [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:roomId];
+//                [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:roomId];
+                [shareConnection requestJoinRoomWithUserId:@"101" roomId:@"111"];
             }
         }
             break;
@@ -704,9 +706,13 @@ typedef enum {
             break;
         case RequestConnectionTypeGetPlayerProfile:{
             NSDictionary *playerProfile = [[data objectForKey:@"data"]objectAtIndex:0];
-            NSDictionary *playerProfileDict = @{@"chips": [playerProfile objectForKey:@"chips"],
-                                                @"displayname":[playerProfile objectForKey:@"displayname"],
-                                                @"pic":[playerProfile objectForKey:@"pic"]
+//            NSDictionary *playerProfileDict = @{@"chips": [playerProfile objectForKey:@"chips"],
+//                                                @"displayname":[playerProfile objectForKey:@"displayname"],
+//                                                @"pic":[playerProfile objectForKey:@"pic"]
+//                                                };
+            NSDictionary *playerProfileDict = @{@"chips": @"555",
+                                                @"displayname":@"Tester 001",
+                                                @"pic": @""
                                                 };
             
             [self refreshPlayerProfileWithData:playerProfileDict];
@@ -744,7 +750,9 @@ typedef enum {
                 PDRoomDataObject *firstFoundRoom = [self.roomData objectAtIndex:randomRoomIndex];
                 currentRequestJoinRoomId = [NSString stringWithString:firstFoundRoom.roomId];
                 
-                [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:firstFoundRoom.roomId];
+//                [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:firstFoundRoom.roomId];
+                
+                [shareConnection requestJoinRoomWithUserId:@"101" roomId:@"102"];
             }
         }
             break;
@@ -760,7 +768,9 @@ typedef enum {
             break;
         case RequestConnectionTypeQuitRoom:{
             if (isQuickJoin && currentRequestJoinRoomId) {
-                [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:currentRequestJoinRoomId];
+//                [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:currentRequestJoinRoomId];
+                
+                [shareConnection requestJoinRoomWithUserId:@"101" roomId:@"103"];
             }
         }
             break;
@@ -804,12 +814,14 @@ typedef enum {
         }
             break;
         case RequestConnectionTypeJoinRoom:{
-            [shareConnection requestQuitRoomWithUserId:shareGame.userId];
+//            [shareConnection requestQuitRoomWithUserId:shareGame.userId];
+            [shareConnection requestQuitRoomWithUserId:@"101"];
         }
             break;
         case RequestConnectionTypeCreateRoom:{
              [self initAlertPopUpWithString:errorString];
-            [shareConnection requestQuitRoomWithUserId:shareGame.userId];
+//            [shareConnection requestQuitRoomWithUserId:shareGame.userId];
+            [shareConnection requestQuitRoomWithUserId:@"101"];
         }
             break;
         default:
@@ -823,7 +835,9 @@ typedef enum {
 //    NSLog(@"data %@",data);
     NSString *token = [data objectForKey:@"token"];
     NSString *email = [data objectForKey:@"email"];
-    [shareConnection requestFBLoginWithToken:token email:email];
+//    [shareConnection requestFBLoginWithToken:token email:email];
+    [shareConnection requestFBLoginWithToken:@"6a0a3ac39064ee69a7cbec66749be8b8" email:@"nhok3by_kut3@yahoo.com.vn"];
+
 }
 
 -(void) loginWithFBFailWithError:(NSError *)error{
@@ -862,6 +876,7 @@ typedef enum {
 #pragma mark - 
 -(void) pressJoinRoomButtonCallbackWithRoomId:(NSString *)roomId{
     shareGame.joinRoomType = JoinRoomTypeNormalJoin;
-    [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:roomId];
+//    [shareConnection requestJoinRoomWithUserId:shareGame.userId roomId:roomId];
+    [shareConnection requestJoinRoomWithUserId:@"101" roomId:@"111"];
 }
 @end
